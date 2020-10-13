@@ -5,6 +5,8 @@ const port = 5000
 const { User } = require('./models/User')
 const bodyParser = require('body-parser')
 
+const config = require('./config/key')
+
 // bodyParser : client 에서 오는 정보를 서버에서 분석해서 가져올 수 있도록 해줌
 // application/x-www-form-urlencded 타입의 데이터를 분석해서 가져올 수 있게 함.
 app.use(bodyParser.urlencoded({extended: true}));
@@ -13,13 +15,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // mongoDb를 연결
+// local 에서는 develop(dev.js), 배포 이후에는 production(prod.js) 에서 관리
+// 분기를 나눠 주어야 함.
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://sunhpark:abcd1234@boilerplate.ccf2x.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(config.mongoURI, {
         useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true,useFindAndModify: false
     }).then(() => console.log('MongoDB connected...'))
       .catch(err => console.log(err))
 // root 디렉토리에 올 때 해당 문구 출력
-app.get('/', (req, res) => res.send('Hello world!'))
+app.get('/', (req, res) => res.send('Hello world!, goodmoring'))
 
 // 회원가입을 위한 route
 app.post('/register', (req, res) => {
