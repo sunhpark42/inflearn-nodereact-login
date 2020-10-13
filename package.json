@@ -1,0 +1,24 @@
+{
+  "name": "boiler-plate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunhpark42/inflearn-nodereact-login.git"
+  },
+  "author": "sunhpark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunhpark42/inflearn-nodereact-login/issues"
+  },
+  "homepage": "https://github.com/sunhpark42/inflearn-nodereact-login#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9"
+  }
+}
